@@ -1,5 +1,5 @@
-extension IntIterableExtension on Iterable<int> {
-  int sum() {
-    return fold(0, (curr, acc) => curr + acc);
+extension IterableSetExtension<T> on Iterable<Set<T>> {
+  Set<T> intersection() {
+    return reduce((value, element) => value.intersection(element));
   }
 }

@@ -1,6 +1,12 @@
 ## Before
 
-This repository works with generated code, please run the following commands before executing it:
+Get all dependencies:
+
+```shell
+dart pub get
+```
+
+and then please run the following commands :
 
 ```shell
 dart run build_runner build

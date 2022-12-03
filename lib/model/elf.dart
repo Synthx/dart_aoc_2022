@@ -1,4 +1,4 @@
-import 'package:aoc_2022/extension/extension.dart';
+import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'elf.freezed.dart';
@@ -13,6 +13,6 @@ class Elf with _$Elf {
   }) = _Elf;
 
   int totalCalories() {
-    return calories.sum();
+    return calories.sum;
   }
 }
