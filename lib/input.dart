@@ -47,3 +47,27 @@ Future<List<Rucksack>> readRucksacks(String filePath) async {
     );
   }).toList(growable: false);
 }
+
+Future<List<Pair>> readPairs(String filePath) async {
+  final file = File(filePath);
+  final lines = await file.readAsLines();
+
+  return lines.map((e) {
+    final sections = e.split(',');
+    final firstSections =
+        sections[0].split('-').map((e) => int.parse(e)).toList(growable: false);
+    final secondSections =
+        sections[1].split('-').map((e) => int.parse(e)).toList(growable: false);
+
+    return Pair(
+      firstSections: Range(
+        start: firstSections[0],
+        end: firstSections[1],
+      ),
+      secondSections: Range(
+        start: secondSections[0],
+        end: secondSections[1],
+      ),
+    );
+  }).toList(growable: false);
+}

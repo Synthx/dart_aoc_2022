@@ -5,7 +5,14 @@ import 'package:aoc_2022/model/model.dart';
 import 'package:collection/collection.dart';
 
 Future<void> main() async {
-  await day3();
+  await day4();
+}
+
+Future<void> day4() async {
+  final List<Pair> pairs = await readPairs('bin/inputs/day4');
+
+  print(pairs.where((e) => e.isUseless()).length);
+  print(pairs.where((e) => e.overlaps()).length);
 }
 
 Future<void> day3() async {
