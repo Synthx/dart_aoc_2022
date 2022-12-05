@@ -71,3 +71,34 @@ Future<List<Pair>> readPairs(String filePath) async {
     );
   }).toList(growable: false);
 }
+
+Future<List<List<String>>> readStacks(String filePath) async {
+  // fuck it, I'm not doing this one
+  return [
+    ['W', 'B', 'D', 'N', 'C', 'F', 'J'],
+    ['P', 'Z', 'V', 'Q', 'L', 'S', 'T'],
+    ['P', 'Z', 'B', 'G', 'J', 'T'],
+    ['D', 'T', 'L', 'J', 'Z', 'B', 'H', 'C'],
+    ['G', 'V', 'B', 'J', 'S'],
+    ['P', 'S', 'Q'],
+    ['B', 'V', 'D', 'F', 'L', 'M', 'P', 'N'],
+    ['P', 'S', 'M', 'F', 'B', 'D', 'L', 'R'],
+    ['V', 'D', 'T', 'R'],
+  ];
+}
+
+Future<List<Operation>> readOperations(String filePath) async {
+  final file = File(filePath);
+  final lines = await file.readAsString();
+  final parts = lines.split('\n\n');
+  final pattern = RegExp(r'move (\d+) from (\d+) to (\d+)');
+
+  return parts.last.split('\n').map((e) {
+    final matches = pattern.firstMatch(e);
+    return Operation(
+      size: int.parse(matches?.group(1) as String),
+      to: int.parse(matches?.group(3) as String) - 1,
+      from: int.parse(matches?.group(2) as String) - 1,
+    );
+  }).toList(growable: false);
+}

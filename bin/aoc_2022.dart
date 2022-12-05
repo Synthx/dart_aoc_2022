@@ -5,7 +5,20 @@ import 'package:aoc_2022/model/model.dart';
 import 'package:collection/collection.dart';
 
 Future<void> main() async {
-  await day4();
+  await day5();
+}
+
+Future<void> day5() async {
+  final List<List<String>> stacks = await readStacks('bin/inputs/day5');
+  final List<Operation> operations = await readOperations('bin/inputs/day5');
+
+  for (final operation in operations) {
+    final crates = stacks[operation.from].removeLastElement(operation.size);
+    // part 1 : stacks[operation.to].addAll(crates.reversed);
+    stacks[operation.to].addAll(crates);
+  }
+
+  print(stacks.map((e) => e.last).join(''));
 }
 
 Future<void> day4() async {
