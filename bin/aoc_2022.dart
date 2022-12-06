@@ -5,7 +5,14 @@ import 'package:aoc_2022/model/model.dart';
 import 'package:collection/collection.dart';
 
 Future<void> main() async {
-  await day5();
+  await day6();
+}
+
+Future<void> day6() async {
+  final List<String> buffer = await readBuffer('bin/inputs/day6');
+
+  print(buffer.firstIndexDifferent(4));
+  print(buffer.firstIndexDifferent(14));
 }
 
 Future<void> day5() async {

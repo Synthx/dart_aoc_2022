@@ -102,3 +102,10 @@ Future<List<Operation>> readOperations(String filePath) async {
     );
   }).toList(growable: false);
 }
+
+Future<List<String>> readBuffer(String filePath) async {
+  final file = File(filePath);
+  final buffer = await file.readAsString();
+
+  return buffer.characters();
+}

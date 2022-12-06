@@ -3,6 +3,10 @@ extension StringExtension on String {
     return [substring(0, length), substring(length)];
   }
 
+  List<String> characters() {
+    return split('');
+  }
+
   bool isUpperCase() {
     return this == toUpperCase();
   }

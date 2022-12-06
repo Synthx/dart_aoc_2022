@@ -16,4 +16,23 @@ void main() {
       });
     });
   });
+
+  group("List<String>", () {
+    group("firstIndexDifferent(int)", () {
+      test(
+          "should return the first position where n successive characters are different",
+          () {
+        expect(
+            "mjqjpqmgbljsphdztnvjfqwrcgsmlb"
+                .characters()
+                .firstIndexDifferent(4),
+            equals(7));
+        expect(
+            "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"
+                .characters()
+                .firstIndexDifferent(4),
+            equals(10));
+      });
+    });
+  });
 }

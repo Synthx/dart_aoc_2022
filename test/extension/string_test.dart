@@ -20,5 +20,11 @@ void main() {
         expect("Z".priority(), 52);
       });
     });
+
+    group("characters()", () {
+      test("should return the characters of the string", () {
+        expect("abc".characters(), equals(["a", "b", "c"]));
+      });
+    });
   });
 }

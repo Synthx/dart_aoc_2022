@@ -9,3 +9,16 @@ extension ListExtension<T> on List<T> {
     return result;
   }
 }
+
+extension ListStringExtension on List<String> {
+  int firstIndexDifferent(int size) {
+    var end = size;
+    var characters = sublist(end - size, end);
+    while (characters.toSet().length != size && end != length) {
+      end++;
+      characters = sublist(end - size, end);
+    }
+
+    return end;
+  }
+}
